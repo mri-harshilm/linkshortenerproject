@@ -40,7 +40,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex flex-col flex-1">
+    <div className={cn("flex flex-col flex-1 font-sans")}>
       {/* Hero */}
       <section className="flex flex-col items-center justify-center text-center px-4 py-24 sm:py-32">
         <div
