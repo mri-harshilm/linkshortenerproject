@@ -1,3 +1,8 @@
+---
+description: Read this before implementing or modifying any authentication-related code in the project.
+
+---
+
 # Authentication — Clerk
 
 All authentication in this project is handled exclusively by **Clerk**. No other auth method, library, or custom implementation should ever be used.
