@@ -35,9 +35,7 @@ export function CreateLinkDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger render={<Button />}>
-        Create Link
-      </DialogTrigger>
+      <DialogTrigger render={<Button />}>Create Link</DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Create Short Link</DialogTitle>

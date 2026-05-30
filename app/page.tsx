@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { SignInButton, SignUpButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Link2, BarChart3, Shield, Zap, ArrowRight } from "lucide-react";
+import { Link2, Shield, Zap, ArrowRight } from "lucide-react";
 
 const features = [
   {
@@ -11,12 +11,6 @@ const features = [
     description:
       "Generate a clean short link in milliseconds. Just paste your URL and go.",
     Icon: Zap,
-  },
-  {
-    title: "Click Analytics",
-    description:
-      "Track how many times your links are clicked and monitor performance in real time.",
-    Icon: BarChart3,
   },
   {
     title: "Secure & Reliable",
@@ -34,7 +28,7 @@ const features = [
 
 export default async function Home() {
   const { userId } = await auth();
-  
+
   if (userId) {
     redirect("/dashboard");
   }
@@ -46,7 +40,7 @@ export default async function Home() {
         <div
           className={cn(
             "inline-flex items-center gap-2 rounded-full border border-border",
-            "bg-muted px-4 py-1.5 text-sm text-muted-foreground mb-8"
+            "bg-muted px-4 py-1.5 text-sm text-muted-foreground mb-8",
           )}
         >
           <Zap className="size-3.5" />
@@ -56,16 +50,16 @@ export default async function Home() {
         <h1
           className={cn(
             "max-w-3xl text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight",
-            "text-foreground mb-6 leading-tight"
+            "text-foreground mb-6 leading-tight",
           )}
         >
-          Shorten Links,{" "}
-          <span className="text-[#6c47ff]">Amplify</span> Your Reach
+          Shorten Links, <span className="text-[#6c47ff]">Amplify</span> Your
+          Reach
         </h1>
 
         <p className="max-w-xl text-lg text-muted-foreground mb-10">
-          Create clean, memorable short links in seconds. Track clicks, manage
-          your links, and share smarter — all from one place.
+          Create clean, memorable short links in seconds. Manage your links and
+          share smarter — all from one place.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
@@ -73,7 +67,7 @@ export default async function Home() {
             <Button
               className={cn(
                 "rounded-full bg-[#6c47ff] text-white hover:bg-[#5a3adb]",
-                "h-12 px-6 text-base gap-2"
+                "h-12 px-6 text-base gap-2",
               )}
             >
               Get Started Free
@@ -99,7 +93,7 @@ export default async function Home() {
             Everything you need
           </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
-            Powerful features to help you shorten, share, and track your links
+            Powerful features to help you shorten, share, and manage your links
             effortlessly.
           </p>
 
@@ -108,13 +102,13 @@ export default async function Home() {
               <div
                 key={feature.title}
                 className={cn(
-                  "flex flex-col gap-3 rounded-xl border border-border bg-card p-6"
+                  "flex flex-col gap-3 rounded-xl border border-border bg-card p-6",
                 )}
               >
                 <div
                   className={cn(
                     "flex size-10 items-center justify-center rounded-lg",
-                    "bg-[#6c47ff]/10 text-[#6c47ff]"
+                    "bg-[#6c47ff]/10 text-[#6c47ff]",
                   )}
                 >
                   <feature.Icon className="size-5" />
@@ -136,7 +130,7 @@ export default async function Home() {
         <div
           className={cn(
             "max-w-2xl mx-auto text-center rounded-2xl",
-            "border border-border bg-card p-10"
+            "border border-border bg-card p-10",
           )}
         >
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
@@ -150,7 +144,7 @@ export default async function Home() {
             <Button
               className={cn(
                 "rounded-full bg-[#6c47ff] text-white hover:bg-[#5a3adb]",
-                "h-12 px-8 text-base"
+                "h-12 px-8 text-base",
               )}
             >
               Create Your Free Account

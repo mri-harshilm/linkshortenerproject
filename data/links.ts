@@ -1,7 +1,7 @@
-import { db } from '@/db';
-import { links } from '@/db/schema';
-import { and, desc, eq } from 'drizzle-orm';
-import { nanoid } from 'nanoid';
+import { db } from "@/db";
+import { links } from "@/db/schema";
+import { and, desc, eq } from "drizzle-orm";
+import { nanoid } from "nanoid";
 
 export async function getLinksByUserId(userId: string) {
   return db
@@ -30,9 +30,7 @@ export async function updateLink(id: number, userId: string, url: string) {
 }
 
 export async function deleteLink(id: number, userId: string) {
-  await db
-    .delete(links)
-    .where(and(eq(links.id, id), eq(links.userId, userId)));
+  await db.delete(links).where(and(eq(links.id, id), eq(links.userId, userId)));
 }
 
 export async function getLinkByShortCode(shortCode: string) {

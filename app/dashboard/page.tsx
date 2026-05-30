@@ -28,7 +28,9 @@ export default async function DashboardPage() {
         <CreateLinkDialog />
       </div>
       {links.length === 0 ? (
-        <p className="text-muted-foreground">No links yet. Create your first short link!</p>
+        <p className="text-muted-foreground">
+          No links yet. Create your first short link!
+        </p>
       ) : (
         <Table>
           <TableHeader>
@@ -47,7 +49,11 @@ export default async function DashboardPage() {
                 <TableCell>{link.createdAt.toLocaleDateString()}</TableCell>
                 <TableCell>
                   <LinkActions
-                    link={{ id: link.id, url: link.url, shortCode: link.shortCode }}
+                    link={{
+                      id: link.id,
+                      url: link.url,
+                      shortCode: link.shortCode,
+                    }}
                   />
                 </TableCell>
               </TableRow>
@@ -58,4 +64,3 @@ export default async function DashboardPage() {
     </div>
   );
 }
- 

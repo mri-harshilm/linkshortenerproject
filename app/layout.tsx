@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import {
+  ClerkProvider,
+  Show,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 import { shadcn } from "@clerk/themes";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Button } from "@/components/ui/button";
@@ -44,7 +50,11 @@ export default function RootLayout({
                 <Button variant="ghost">Sign In</Button>
               </SignInButton>
               <SignUpButton mode="modal">
-                <Button className={cn("rounded-full bg-[#6c47ff] text-white hover:bg-[#5a3adb] h-10 sm:h-12 px-4 sm:px-5 text-sm sm:text-base")}>
+                <Button
+                  className={cn(
+                    "rounded-full bg-[#6c47ff] text-white hover:bg-[#5a3adb] h-10 sm:h-12 px-4 sm:px-5 text-sm sm:text-base",
+                  )}
+                >
                   Sign Up
                 </Button>
               </SignUpButton>
