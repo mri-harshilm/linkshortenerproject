@@ -1,14 +1,14 @@
-import { integer, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
+import { integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 
-export const links = pgTable("links", {
-  id: integer("id").generatedAlwaysAsIdentity().primaryKey(),
-  userId: text("user_id").notNull(),
-  url: text("url").notNull(),
-  shortCode: text("short_code").notNull().unique(),
-  createdAt: timestamp("created_at", { withTimezone: true })
+export const links = pgTable('links', {
+  id: integer('id').generatedAlwaysAsIdentity().primaryKey(),
+  userId: text('user_id').notNull(),
+  url: text('url').notNull(),
+  shortCode: text('short_code').notNull().unique(),
+  createdAt: timestamp('created_at', { withTimezone: true })
     .notNull()
     .defaultNow(),
-  updatedAt: timestamp("updated_at", { withTimezone: true })
+  updatedAt: timestamp('updated_at', { withTimezone: true })
     .notNull()
     .defaultNow(),
 });

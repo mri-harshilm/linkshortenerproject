@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState, useTransition } from "react";
-import { PencilIcon, Trash2Icon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState, useTransition } from 'react';
+import { PencilIcon, Trash2Icon } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -10,10 +10,10 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { updateLinkAction, deleteLinkAction } from "@/app/dashboard/actions";
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { updateLinkAction, deleteLinkAction } from '@/app/dashboard/actions';
 
 type Link = {
   id: number;
@@ -42,7 +42,7 @@ export function LinkActions({ link }: { link: Link }) {
     setEditError(null);
     startTransition(async () => {
       const result = await updateLinkAction({ id: link.id, url });
-      if ("error" in result) {
+      if ('error' in result) {
         setEditError(result.error);
       } else {
         setEditOpen(false);
@@ -54,7 +54,7 @@ export function LinkActions({ link }: { link: Link }) {
     setDeleteError(null);
     startTransition(async () => {
       const result = await deleteLinkAction({ id: link.id });
-      if ("error" in result) {
+      if ('error' in result) {
         setDeleteError(result.error);
       } else {
         setDeleteOpen(false);
@@ -78,7 +78,7 @@ export function LinkActions({ link }: { link: Link }) {
           <DialogHeader>
             <DialogTitle>Edit Link</DialogTitle>
             <DialogDescription>
-              Update the destination URL for{" "}
+              Update the destination URL for{' '}
               <span className="font-mono font-medium">{link.shortCode}</span>.
             </DialogDescription>
           </DialogHeader>
@@ -97,7 +97,7 @@ export function LinkActions({ link }: { link: Link }) {
               <p className="text-sm text-destructive">{editError}</p>
             )}
             <Button type="submit" disabled={isPending} className="w-full">
-              {isPending ? "Saving…" : "Save changes"}
+              {isPending ? 'Saving…' : 'Save changes'}
             </Button>
           </form>
         </DialogContent>
@@ -118,7 +118,7 @@ export function LinkActions({ link }: { link: Link }) {
           <DialogHeader>
             <DialogTitle>Delete Link</DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete{" "}
+              Are you sure you want to delete{' '}
               <span className="font-mono font-medium">{link.shortCode}</span>?
               This action cannot be undone.
             </DialogDescription>
@@ -132,7 +132,7 @@ export function LinkActions({ link }: { link: Link }) {
               onClick={handleDelete}
               disabled={isPending}
             >
-              {isPending ? "Deleting…" : "Delete"}
+              {isPending ? 'Deleting…' : 'Delete'}
             </Button>
           </DialogFooter>
         </DialogContent>

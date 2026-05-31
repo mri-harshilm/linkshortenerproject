@@ -1,18 +1,18 @@
-"use server";
+'use server';
 
-import { auth } from "@clerk/nextjs/server";
-import { z } from "zod";
-import { createLink, updateLink, deleteLink } from "@/data/links";
-import { revalidatePath } from "next/cache";
+import { auth } from '@clerk/nextjs/server';
+import { z } from 'zod';
+import { createLink, updateLink, deleteLink } from '@/data/links';
+import { revalidatePath } from 'next/cache';
 
 const createLinkSchema = z.object({
-  url: z.string().url({ message: "Please enter a valid URL." }),
+  url: z.string().url({ message: 'Please enter a valid URL.' }),
 });
 
 export async function createLinkAction(input: { url: string }) {
   const { userId } = await auth();
   if (!userId) {
-    return { error: "You must be signed in to create a link." };
+    return { error: 'You must be signed in to create a link.' };
   }
 
   const parsed = createLinkSchema.safeParse(input);
@@ -22,22 +22,22 @@ export async function createLinkAction(input: { url: string }) {
 
   try {
     const link = await createLink(userId, parsed.data.url);
-    revalidatePath("/dashboard");
+    revalidatePath('/dashboard');
     return { success: link };
   } catch {
-    return { error: "Failed to create link. Please try again." };
+    return { error: 'Failed to create link. Please try again.' };
   }
 }
 
 const updateLinkSchema = z.object({
   id: z.number().int().positive(),
-  url: z.string().url({ message: "Please enter a valid URL." }),
+  url: z.string().url({ message: 'Please enter a valid URL.' }),
 });
 
 export async function updateLinkAction(input: { id: number; url: string }) {
   const { userId } = await auth();
   if (!userId) {
-    return { error: "You must be signed in." };
+    return { error: 'You must be signed in.' };
   }
 
   const parsed = updateLinkSchema.safeParse(input);
@@ -47,10 +47,10 @@ export async function updateLinkAction(input: { id: number; url: string }) {
 
   try {
     const link = await updateLink(parsed.data.id, userId, parsed.data.url);
-    revalidatePath("/dashboard");
+    revalidatePath('/dashboard');
     return { success: link };
   } catch {
-    return { error: "Failed to update link. Please try again." };
+    return { error: 'Failed to update link. Please try again.' };
   }
 }
 
@@ -61,7 +61,7 @@ const deleteLinkSchema = z.object({
 export async function deleteLinkAction(input: { id: number }) {
   const { userId } = await auth();
   if (!userId) {
-    return { error: "You must be signed in." };
+    return { error: 'You must be signed in.' };
   }
 
   const parsed = deleteLinkSchema.safeParse(input);
@@ -71,9 +71,9 @@ export async function deleteLinkAction(input: { id: number }) {
 
   try {
     await deleteLink(parsed.data.id, userId);
-    revalidatePath("/dashboard");
+    revalidatePath('/dashboard');
     return { success: true };
   } catch {
-    return { error: "Failed to delete link. Please try again." };
+    return { error: 'Failed to delete link. Please try again.' };
   }
 }

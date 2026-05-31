@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "postToolUse": [
+      {
+        "type": "command",
+        "bash": "mkdir -p tmp && cat > tmp/$(date +%s).json",
+        "powershell": "$ts=[DateTimeOffset]::UtcNow.ToUnixTimeSeconds(); New-Item -ItemType Directory -Force -Path tmp | Out-Null; $Input | Out-File \"tmp/$ts.json\" -Encoding utf8"
+      }
+    ]
+  }
+}

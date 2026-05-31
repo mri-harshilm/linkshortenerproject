@@ -1,7 +1,7 @@
-import { db } from "@/db";
-import { links } from "@/db/schema";
-import { and, desc, eq } from "drizzle-orm";
-import { nanoid } from "nanoid";
+import { db } from '@/db';
+import { links } from '@/db/schema';
+import { and, desc, eq } from 'drizzle-orm';
+import { nanoid } from 'nanoid';
 
 export async function getLinksByUserId(userId: string) {
   return db

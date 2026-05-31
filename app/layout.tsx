@@ -1,31 +1,31 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import {
   ClerkProvider,
   Show,
   SignInButton,
   SignUpButton,
   UserButton,
-} from "@clerk/nextjs";
-import { shadcn } from "@clerk/themes";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import "./globals.css";
+} from '@clerk/nextjs';
+import { shadcn } from '@clerk/themes';
+import { Geist, Geist_Mono } from 'next/font/google';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import './globals.css';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "LinkSnip — Shorten Links, Amplify Your Reach",
+  title: 'LinkSnip — Shorten Links, Amplify Your Reach',
   description:
-    "Create clean, memorable short links in seconds. Track clicks, manage your links, and share smarter.",
+    'Create clean, memorable short links in seconds. Track clicks, manage your links, and share smarter.',
 };
 
 export default function RootLayout({
@@ -52,7 +52,7 @@ export default function RootLayout({
               <SignUpButton mode="modal">
                 <Button
                   className={cn(
-                    "rounded-full bg-[#6c47ff] text-white hover:bg-[#5a3adb] h-10 sm:h-12 px-4 sm:px-5 text-sm sm:text-base",
+                    'rounded-full bg-[#6c47ff] text-white hover:bg-[#5a3adb] h-10 sm:h-12 px-4 sm:px-5 text-sm sm:text-base',
                   )}
                 >
                   Sign Up
